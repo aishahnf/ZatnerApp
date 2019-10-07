@@ -6,7 +6,7 @@
 //  Copyright © 2018 Supernova. All rights reserved.
 //
 
-import { View, Image, StyleSheet, Text,TouchableOpacity } from "react-native"
+import { View, Image, StyleSheet, Text,TouchableOpacity,TextInput } from "react-native"
 import React from "react"
 import LinearGradient from "react-native-linear-gradient"
 
@@ -47,8 +47,8 @@ export default class Login extends React.Component {
 					style={styles.groupCopyView}>
 					<Text
 						style={styles.usernameText}>Username</Text>
-					<Text
-						style={styles.johndoe123Text}>johndoe123</Text>
+					<TextInput
+						style={styles.johndoe123Text}>johndoe123</TextInput>
 					<View
 						style={{
 							flex: 1,
@@ -75,8 +75,8 @@ export default class Login extends React.Component {
 								top: 0,
 								bottom: 0,
 							}}>
-							<Text
-								style={styles.textText}>**********</Text>
+							<TextInput secureTextEntry={true}
+								style={styles.textText}>****</TextInput>
 							<View
 								style={styles.rectangle3TwoView}/>
 						</View>
