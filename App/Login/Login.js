@@ -6,7 +6,7 @@
 //  Copyright © 2018 Supernova. All rights reserved.
 //
 
-import { View, Image, StyleSheet, Text } from "react-native"
+import { View, Image, StyleSheet, Text,TouchableOpacity } from "react-native"
 import React from "react"
 import LinearGradient from "react-native-linear-gradient"
 
@@ -14,7 +14,7 @@ import LinearGradient from "react-native-linear-gradient"
 export default class Login extends React.Component {
 
 	static navigationOptions = ({ navigation }) => {
-	
+
 		const { params = {} } = navigation.state
 		return {
 				header: null,
@@ -28,11 +28,14 @@ export default class Login extends React.Component {
 	}
 
 	componentDidMount() {
-	
+
+	}
+	_onPressButton() {
+		alert('You tapped the button!')
 	}
 
 	render() {
-	
+
 		return <View
 				style={styles.loginView}>
 				<Image
@@ -73,18 +76,20 @@ export default class Login extends React.Component {
 								bottom: 0,
 							}}>
 							<Text
-								style={styles.textText}>************</Text>
+								style={styles.textText}>**********</Text>
 							<View
 								style={styles.rectangle3TwoView}/>
 						</View>
+						<TouchableOpacity onPress={this._onPressButton}>
 						<Image
 							source={require("./../../assets/images/eye-open-light-2.png")}
-							style={styles.eyeOpenLightImage}/>
+							style={styles.eyeOpenLightImage}/></TouchableOpacity>
 					</View>
 				</View>
+			<TouchableOpacity onPress={this._onPressButton}>
 				<Text
-					style={styles.forgotPasswordText}>Forgot Password?</Text>
-				<LinearGradient
+					style={styles.forgotPasswordText}>Forgot Password?</Text></TouchableOpacity>
+					<LinearGradient
 					start={{
 						x: 0.12,
 						y: 0.55,
@@ -96,14 +101,21 @@ export default class Login extends React.Component {
 					locations={[0, 1]}
 					colors={["rgb(13, 143, 197)", "rgb(0, 103, 165)"]}
 					style={styles.btnViewLinearGradient}>
+						<TouchableOpacity onPress={this._onPressButton}>
 					<View
 						style={styles.btnView}>
 						<Text
-							style={styles.loginText}>LOGI</Text>
+							style={styles.loginText}>LOGIN</Text>
 					</View>
+						</TouchableOpacity>
+
 				</LinearGradient>
 				<Text
 					style={styles.needAnAccountSigText}>Need an account? </Text>
+			<TouchableOpacity onPress={this._onPressButton}>
+			<Text
+				style={styles.needAnAccountSigText}>Sign Up</Text>
+			</TouchableOpacity>
 				<View
 					style={{
 						flex: 1,
@@ -152,6 +164,7 @@ export default class Login extends React.Component {
 								}}>
 								<View
 									style={styles.rectangle6CopyView}/>
+								<TouchableOpacity onPress={this._onPressButton}>
 								<View
 									pointerEvents="box-none"
 									style={{
@@ -169,6 +182,7 @@ export default class Login extends React.Component {
 									<Text
 										style={styles.facebookText}>Facebook</Text>
 								</View>
+									</TouchableOpacity>
 							</View>
 							<View
 								style={{
@@ -182,6 +196,7 @@ export default class Login extends React.Component {
 								}}>
 								<View
 									style={styles.rectangle6CopyTwoView}/>
+								<TouchableOpacity onPress={this._onPressButton}>
 								<View
 									pointerEvents="box-none"
 									style={{
@@ -200,6 +215,7 @@ export default class Login extends React.Component {
 									<Text
 										style={styles.googleText}>Google</Text>
 								</View>
+								</TouchableOpacity>
 							</View>
 						</View>
 					</View>
@@ -226,7 +242,7 @@ const styles = StyleSheet.create({
 	loginToYourAccounText: {
 		backgroundColor: "transparent",
 		color: "rgb(102, 102, 102)",
-		fontFamily: ".SFNSDisplay",
+		fontFamily: ".AppleSystemUIFont",
 		fontSize: 23,
 		fontStyle: "normal",
 		fontWeight: "normal",

@@ -1,114 +1,100 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+//
+//  App.js
+//  Project
+//
+//  Created by Supernova.
+//  Copyright © 2018 Supernova. All rights reserved.
+//
 
-import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import { createStackNavigator, createAppContainer } from "react-navigation"
+import SplashScreen1 from "./App/SplashScreen1/SplashScreen1"
+import React from "react"
+import {View,Text} from "react-native"
+import Login from "./App/Login/Login";
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+const PushRouteOne = createStackNavigator({
+  SplashScreen1: {
+    screen: SplashScreen1,
+  },
+}, {
+  initialRouteName: "SplashScreen1",
+})
 
-const App: () => React$Node = () => {
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
-  );
-};
+const PushRouteLogin= createStackNavigator({
+  Login: {
+    screen: Login,
+  },
+}, {
+  initialRouteName: "Login",
+})
 
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+const RootNavigatorLogin = createStackNavigator({
+  PushRouteLogin: {
+    screen: PushRouteLogin,
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-});
+}, {
+  mode: "modal",
+  headerMode: "none",
+  initialRouteName: "PushRouteLogin",
+})
 
-export default App;
+
+const RootNavigator = createStackNavigator({
+  PushRouteOne: {
+    screen: PushRouteOne,
+  },
+}, {
+  mode: "modal",
+  headerMode: "none",
+  initialRouteName: "PushRouteOne",
+})
+
+const AppContainer = createAppContainer(RootNavigator)
+
+const AppContainerLogin = createAppContainer(RootNavigatorLogin)
+
+
+
+export default class App extends React.Component {
+
+  performTimeConsumingTask = async() => {
+    return new Promise((resolve) =>
+        setTimeout(
+            () => { resolve('result') },
+            2000
+        )
+    );
+  }
+
+  async componentDidMount() {
+    // Preload data from an external API
+    // Preload data using AsyncStorage
+    const data = await this.performTimeConsumingTask();
+
+    if (data !== null) {
+      this.setState({ isLoading: false });
+    }
+  }
+  constructor(props) {
+    super(props);
+
+    this.state = { isLoading: true }
+  }
+  render() {
+    if (this.state.isLoading) {
+      return <AppContainer />;
+    }
+      return <AppContainerLogin />;
+
+    // (
+    //     <View style={ {width: 100, height:100}}>
+    //       <Text style={{width: 100, height:100}}>
+    //         Welcome to React Native!
+    //       </Text>
+    //       <Text style={{width: 100, height:100}}>
+    //         Reload the App to see a splash screen
+    //       </Text>
+    //     </View>
+    // );
+  }
+}

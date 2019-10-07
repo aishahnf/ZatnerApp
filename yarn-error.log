@@ -2,7 +2,7 @@ Arguments:
   /usr/local/bin/node /usr/local/Cellar/yarn/1.17.3/libexec/bin/yarn.js install
 
 PATH: 
-  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/888164/Desktop/ZatnerApp/ZatnerApp/node_modules/.bin
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands
 
 Yarn version: 
   1.17.3
@@ -41,6 +41,7 @@ npm manifest:
       "react": "16.9.0",
       "react-native": "0.61.1",
       "react-native-gesture-handle": "1.3.0",
+      "react-native-gesture-handler": "^1.4.1",
       "react-native-linear-gradient": "^2.5.6",
       "react-native-paper": "^2.16.0",
       "react-navigation": "3.11.1"
