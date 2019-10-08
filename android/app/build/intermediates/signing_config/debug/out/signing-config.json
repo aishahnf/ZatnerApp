@@ -1,1 +1,1 @@
-{"mName":"externalOverride","mStoreFile":"/Users/888164/MyKey.keystore","mStorePassword":"123456","mKeyAlias":"123456","mKeyPassword":"123456","mStoreType":"jks","mV1SigningEnabled":false,"mV2SigningEnabled":true}
+{"mName":"debug","mStoreFile":"/Users/888164/Desktop/ZatnerApp/ZatnerApp/android/app/debug.keystore","mStorePassword":"android","mKeyAlias":"androiddebugkey","mKeyPassword":"android","mStoreType":"jks","mV1SigningEnabled":true,"mV2SigningEnabled":true}
