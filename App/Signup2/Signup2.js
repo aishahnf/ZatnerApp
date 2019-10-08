@@ -7,14 +7,17 @@
 //
 
 import LinearGradient from "react-native-linear-gradient"
-import { Text, StyleSheet, Image, View } from "react-native"
+import {Text, StyleSheet, Image, View, TouchableOpacity} from "react-native"
 import React from "react"
+import { Dropdown } from 'react-native-material-dropdown';
+// import DatePicker from 'react-native-date-picker';
+import DatePicker from 'react-native-datepicker'
 
 
 export default class Signup2 extends React.Component {
-
+	state = { date: "23-09-1993" }
 	static navigationOptions = ({ navigation }) => {
-	
+
 		const { params = {} } = navigation.state
 		return {
 				header: null,
@@ -28,11 +31,27 @@ export default class Signup2 extends React.Component {
 	}
 
 	componentDidMount() {
-	
-	}
 
+	}
+	_onPressButton() {
+		alert('You tapped the button!')
+	}
 	render() {
-	
+		let data = [{
+			value: 'United Arab Emirates',
+		}, {
+			value: 'Egypt',
+		}, {
+			value: 'Bahrain',
+		}];
+		let citydata = [{
+			value: 'Dubai',
+		}, {
+			value: 'Ajman',
+		}, {
+			value: 'Abu Dhabi',
+		}];
+		const {navigate} = this.props.navigation;
 		return <View
 				style={styles.signup2View}>
 				<View
@@ -57,9 +76,11 @@ export default class Signup2 extends React.Component {
 						bottom: 16,
 						alignItems: "center",
 					}}>
+					<TouchableOpacity style={styles.backArrowImage} onPress={() => navigate('Login', {name: 'Jane'})}>
 					<Image
 						source={require("./../../assets/images/back-arrow.png")}
 						style={styles.backArrowImage}/>
+					</TouchableOpacity>
 					<View
 						style={styles.groupTwoView}>
 						<Text
@@ -133,25 +154,56 @@ export default class Signup2 extends React.Component {
 						style={styles.groupCopy2View}>
 						<Text
 							style={styles.dateOfBirthText}>Date of Birth</Text>
-						<View
-							pointerEvents="box-none"
-							style={{
-								height: 19,
-								marginLeft: 3,
-								marginTop: 6,
-								flexDirection: "row",
-								alignItems: "flex-start",
-							}}>
-							<Text
-								style={styles.september1993Text}>21 September 1993</Text>
-							<View
-								style={{
-									flex: 1,
-								}}/>
-							<Image
-								source={require("./../../assets/images/calendar-interface-symbol-tool.png")}
-								style={styles.calendarInterfaceSymbolToolImage}/>
-						</View>
+						{/*<View*/}
+						{/*	pointerEvents="box-none"*/}
+						{/*	style={{*/}
+						{/*		height: 19,*/}
+						{/*		marginLeft: 3,*/}
+						{/*		marginTop: 6,*/}
+						{/*		flexDirection: "row",*/}
+						{/*		alignItems: "flex-start",*/}
+						{/*	}}>*/}
+							{/*<DatePicker*/}
+							{/*	date={this.state.date}*/}
+							{/*	onDateChange={date => this.setState({ date })}*/}
+							{/*/>*/}
+
+						{/*	<Text*/}
+						{/*		style={styles.september1993Text}>21 September 1993</Text>*/}
+						{/*	<View*/}
+						{/*		style={{*/}
+						{/*			flex: 1,*/}
+						{/*		}}/>*/}
+						{/*	<Image*/}
+						{/*		source={require("./../../assets/images/calendar-interface-symbol-tool.png")}*/}
+						{/*		style={styles.calendarInterfaceSymbolToolImage}/>*/}
+						{/*</View>*/}
+						<DatePicker
+							style={{width: 200, borderColor:"transparent", borderBottomWidth:0}}
+							date={this.state.date}
+							mode="date"
+							placeholder="select date"
+							format="DD-MM-YYYY"
+							minDate="23-09-1945"
+							maxDate="23-09-1993"
+							confirmBtnText="Confirm"
+							cancelBtnText="Cancel"
+							customStyles={{
+								dateIcon: {
+									position: 'absolute',
+									left: 0,
+									top: 4,
+									marginLeft: 0
+								},
+								dateInput: {
+									marginLeft: 36,
+									borderColor:"transparent",
+									borderBottomWidth:0
+								}
+								// ... You can check the source to find the other keys.
+							}}
+							onDateChange={(date) => {this.setState({date: date})}}
+						/>
 						<View
 							style={{
 								flex: 1,
@@ -163,61 +215,74 @@ export default class Signup2 extends React.Component {
 						style={styles.groupCopy4View}>
 						<Text
 							style={styles.countryText}>Country</Text>
-						<View
-							pointerEvents="box-none"
-							style={{
-								height: 18,
-								marginLeft: 3,
-								marginTop: 6,
-								flexDirection: "row",
-								alignItems: "flex-start",
-							}}>
-							<Text
-								style={styles.unitedArabEmiratesText}>United Arab Emirates</Text>
-							<View
-								style={{
-									flex: 1,
-								}}/>
-							<Image
-								source={require("./../../assets/images/triangle.png")}
-								style={styles.triangleImage}/>
-						</View>
-						<View
-							style={{
-								flex: 1,
-							}}/>
-						<View
-							style={styles.rectangle3View}/>
+						<Dropdown style={styles.unitedArabEmiratesText}
+								  label=''
+								  data={data}
+								  dropdownOffset = {{top:"10"}}
+						/>
+						{/*<View*/}
+						{/*	pointerEvents="box-none"*/}
+						{/*	style={{*/}
+						{/*		height: 18,*/}
+						{/*		marginLeft: 3,*/}
+						{/*		marginTop: 6,*/}
+						{/*		flexDirection: "row",*/}
+						{/*		alignItems: "flex-start",*/}
+						{/*	}}>*/}
+						{/*	<Text*/}
+						{/*		style={styles.unitedArabEmiratesText}>United Arab Emirates</Text>*/}
+
+						{/*	<View*/}
+						{/*		style={{*/}
+						{/*			flex: 1,*/}
+						{/*		}}/>*/}
+						{/*	<Image*/}
+						{/*		source={require("./../../assets/images/triangle.png")}*/}
+						{/*		style={styles.triangleImage}/>*/}
+						{/*</View>*/}
+						{/*<View*/}
+						{/*	style={{*/}
+						{/*		flex: 1,*/}
+						{/*	}}/>*/}
+						{/*<View*/}
+						{/*	style={styles.rectangle3View}/>*/}
 					</View>
 					<View
 						style={styles.groupCopy5View}>
+						{/*<Text*/}
+						{/*	style={styles.cityText}>City</Text>*/}
+						{/*<View*/}
+						{/*	pointerEvents="box-none"*/}
+						{/*	style={{*/}
+						{/*		height: 18,*/}
+						{/*		marginLeft: 3,*/}
+						{/*		marginTop: 6,*/}
+						{/*		flexDirection: "row",*/}
+						{/*		alignItems: "flex-start",*/}
+						{/*	}}>*/}
+						{/*	<Text*/}
+						{/*		style={styles.ajmanText}>Ajman</Text>*/}
+						{/*	<View*/}
+						{/*		style={{*/}
+						{/*			flex: 1,*/}
+						{/*		}}/>*/}
+						{/*	<Image*/}
+						{/*		source={require("./../../assets/images/triangle.png")}*/}
+						{/*		style={styles.triangleTwoImage}/>*/}
+						{/*</View>*/}
+						{/*<View*/}
+						{/*	style={{*/}
+						{/*		flex: 1,*/}
+						{/*	}}/>*/}
+						{/*<View*/}
+						{/*	style={styles.rectangle3TwoView}/>*/}
 						<Text
-							style={styles.cityText}>City</Text>
-						<View
-							pointerEvents="box-none"
-							style={{
-								height: 18,
-								marginLeft: 3,
-								marginTop: 6,
-								flexDirection: "row",
-								alignItems: "flex-start",
-							}}>
-							<Text
-								style={styles.ajmanText}>Ajman</Text>
-							<View
-								style={{
-									flex: 1,
-								}}/>
-							<Image
-								source={require("./../../assets/images/triangle.png")}
-								style={styles.triangleTwoImage}/>
-						</View>
-						<View
-							style={{
-								flex: 1,
-							}}/>
-						<View
-							style={styles.rectangle3TwoView}/>
+							style={styles.countryText}>City</Text>
+						<Dropdown style={styles.ajmanText}
+								  label=''
+								  data={citydata}
+								  dropdownOffset = {{top:"10"}}
+						/>
 					</View>
 					<View
 						style={{
@@ -250,8 +315,10 @@ export default class Signup2 extends React.Component {
 						style={styles.group2ViewLinearGradient}>
 						<View
 							style={styles.group2View}>
+							<TouchableOpacity onPress={this._onPressButton}>
 							<Text
-								style={styles.createAccountText}>CREATE ACCOUN</Text>
+								style={styles.createAccountText}>CREATE ACCOUNT</Text>
+							</TouchableOpacity>
 						</View>
 					</LinearGradient>
 				</View>

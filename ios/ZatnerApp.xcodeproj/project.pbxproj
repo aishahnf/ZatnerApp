@@ -399,7 +399,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		1CED07D0D32895C45D784889 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -668,7 +668,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ae.gov.mol.absher;
 				PRODUCT_NAME = ZatnerApp;
-				PROVISIONING_PROFILE_SPECIFIER = ABSHER_APPSTORE_24Sept19;
+				PROVISIONING_PROFILE_SPECIFIER = TEST_RN;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -691,7 +691,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ae.gov.mol.absher;
 				PRODUCT_NAME = ZatnerApp;
-				PROVISIONING_PROFILE_SPECIFIER = ABSHER_APPSTORE_24Sept19;
+				PROVISIONING_PROFILE_SPECIFIER = TEST_RN;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

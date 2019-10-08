@@ -34,8 +34,14 @@ export default class Login extends React.Component {
 		alert('You tapped the button!')
 	}
 
-	render() {
+	// _onSignUpPressButton() {
+	// 	alert('You tapped the button!')
+	// 	const {navigate} = this.props.navigation;
+	// 	this.props.navigation.navigate('Signup1')
+	// }
 
+	render() {
+		const {navigate} = this.props.navigation;
 		return <View
 				style={styles.loginView}>
 				<Image
@@ -112,7 +118,7 @@ export default class Login extends React.Component {
 				</LinearGradient>
 				<Text
 					style={styles.needAnAccountSigText}>Need an account? </Text>
-			<TouchableOpacity onPress={this._onPressButton}>
+			<TouchableOpacity onPress={() => navigate('Signup2', {name: 'Jane'})}>
 			<Text
 				style={styles.needAnAccountSigText}>Sign Up</Text>
 			</TouchableOpacity>

@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import com.zatnerapp.BuildConfig;
 import com.zatnerapp.R;
 
+// react-native-date-picker
+import com.henninghall.date_picker.DatePickerPackage;
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 // react-native-linear-gradient
@@ -50,6 +52,7 @@ public class PackageList {
   public ArrayList<ReactPackage> getPackages() {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(),
+      new DatePickerPackage(),
       new RNGestureHandlerPackage(),
       new LinearGradientPackage()
     ));
