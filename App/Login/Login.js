@@ -6,7 +6,7 @@
 //  Copyright © 2018 Supernova. All rights reserved.
 //
 
-import { View, Image, StyleSheet, Text,TouchableOpacity,TextInput } from "react-native"
+import { View, Image, StyleSheet, Text,TouchableOpacity,TextInput,ScrollView,KeyboardAvoidingView } from "react-native"
 import React from "react"
 import LinearGradient from "react-native-linear-gradient"
 
@@ -44,6 +44,10 @@ export default class Login extends React.Component {
 		const {navigate} = this.props.navigation;
 		return <View
 				style={styles.loginView}>
+			  <ScrollView>
+				<KeyboardAvoidingView style={{ flex: 1 }} keyboardVerticalOffset={100} behavior={"position"}>
+					<View
+						style={styles.loginView}>
 				<Image
 					source={require("./../../assets/images/group-18-copy.png")}
 					style={styles.group18CopyImage}/>
@@ -228,6 +232,9 @@ export default class Login extends React.Component {
 					<Text
 						style={styles.orLoginUsingSociaText}>OR LOGIN USING SOCIAL</Text>
 				</View>
+					</View>
+				</KeyboardAvoidingView>
+			</ScrollView>
 			</View>
 	}
 }
@@ -286,6 +293,7 @@ const styles = StyleSheet.create({
 		letterSpacing: 0.17,
 		marginLeft: 3,
 		marginTop: 6,
+		width: "60%"
 	},
 	rectangle3View: {
 		backgroundColor: "rgb(216, 216, 216)",
@@ -318,7 +326,7 @@ const styles = StyleSheet.create({
 		backgroundColor: "transparent",
 		position: "absolute",
 		left: 3,
-		width: 83,
+		width: "60%",
 		top: 0,
 	},
 	rectangle3TwoView: {

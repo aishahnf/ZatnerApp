@@ -7,11 +7,12 @@
 //
 
 import LinearGradient from "react-native-linear-gradient"
-import {Text, StyleSheet, Image, View, TouchableOpacity} from "react-native"
+import {Text, StyleSheet, Image, View, TouchableOpacity, TextInput,ScrollView,KeyboardAvoidingView} from "react-native"
 import React from "react"
 import { Dropdown } from 'react-native-material-dropdown';
 // import DatePicker from 'react-native-date-picker';
 import DatePicker from 'react-native-datepicker'
+
 
 
 export default class Signup2 extends React.Component {
@@ -54,6 +55,10 @@ export default class Signup2 extends React.Component {
 		const {navigate} = this.props.navigation;
 		return <View
 				style={styles.signup2View}>
+			<ScrollView>
+				<KeyboardAvoidingView style={{ flex: 1 }} keyboardVerticalOffset={100} behavior={"position"}>
+					<View
+						style={styles.signup2View}>
 				<View
 					style={styles.groupView}>
 					<Image
@@ -85,8 +90,8 @@ export default class Signup2 extends React.Component {
 						style={styles.groupTwoView}>
 						<Text
 							style={styles.fullNameText}>Full Name</Text>
-						<Text
-							style={styles.johnDoeJuniorText}>John Doe Junior</Text>
+						<TextInput
+							style={styles.johnDoeJuniorText}>John Doe Junior</TextInput>
 						<View
 							style={{
 								flex: 1,
@@ -285,15 +290,15 @@ export default class Signup2 extends React.Component {
 						/>
 					</View>
 					<View
-						style={{
-							flex: 1,
-						}}/>
+					style={{
+						flex: 1,
+					}}/>
 					<View
 						style={styles.groupCopy6View}>
 						<Text
 							style={styles.addressLineText}>Address Line</Text>
-						<Text
-							style={styles.sheikhHumaidBinRaText}>Sheikh Humaid Bin Rashid Al Num…</Text>
+						<TextInput
+							style={styles.sheikhHumaidBinRaText}></TextInput>
 						<View
 							style={{
 								flex: 1,
@@ -322,6 +327,9 @@ export default class Signup2 extends React.Component {
 						</View>
 					</LinearGradient>
 				</View>
+					</View>
+				</KeyboardAvoidingView>
+			</ScrollView>
 			</View>
 	}
 }
@@ -330,6 +338,7 @@ const styles = StyleSheet.create({
 	signup2View: {
 		backgroundColor: "white",
 		flex: 1,
+
 	},
 	groupView: {
 		backgroundColor: "transparent",
@@ -393,6 +402,7 @@ const styles = StyleSheet.create({
 		letterSpacing: 0.17,
 		marginLeft: 3,
 		marginTop: 6,
+		width: "60%"
 	},
 	rectangle3SevenView: {
 		backgroundColor: "rgb(216, 216, 216)",
@@ -579,10 +589,12 @@ const styles = StyleSheet.create({
 	},
 	groupCopy6View: {
 		backgroundColor: "transparent",
-		alignSelf: "flex-end",
+		alignSelf: "flex-start",
 		width: 291,
 		height: 51,
 		marginBottom: 22,
+		marginLeft: 40,
+		marginTop: 24,
 	},
 	addressLineText: {
 		color: "rgb(0, 103, 165)",
@@ -607,6 +619,7 @@ const styles = StyleSheet.create({
 		marginLeft: 3,
 		marginRight: 23,
 		marginTop: 6,
+		width: "60%"
 	},
 	rectangle3SixView: {
 		backgroundColor: "rgb(216, 216, 216)",
