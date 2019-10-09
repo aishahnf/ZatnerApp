@@ -9,8 +9,7 @@
 import { View, Image, StyleSheet, Text,TouchableOpacity,TextInput,ScrollView,KeyboardAvoidingView } from "react-native"
 import React from "react"
 import LinearGradient from "react-native-linear-gradient"
-
-
+import KeyboardSpacer from 'react-native-keyboard-spacer';
 export default class Login extends React.Component {
 
 	static navigationOptions = ({ navigation }) => {
@@ -43,8 +42,8 @@ export default class Login extends React.Component {
 	render() {
 		const {navigate} = this.props.navigation;
 		return <View
-				style={styles.loginView}>
-			  <ScrollView>
+				style={{flex: 1}}>
+			<ScrollView>
 				<KeyboardAvoidingView style={{ flex: 1 }} keyboardVerticalOffset={100} behavior={"position"}>
 					<View
 						style={styles.loginView}>
@@ -59,6 +58,8 @@ export default class Login extends React.Component {
 						style={styles.usernameText}>Username</Text>
 					<TextInput
 						style={styles.johndoe123Text}>johndoe123</TextInput>
+					{/* The view that will animate to match the keyboards height */}
+					{/*<KeyboardSpacer/>*/}
 					<View
 						style={{
 							flex: 1,
@@ -87,6 +88,8 @@ export default class Login extends React.Component {
 							}}>
 							<TextInput secureTextEntry={true}
 								style={styles.textText}>****</TextInput>
+							{/* The view that will animate to match the keyboards height */}
+							{/*<KeyboardSpacer/>*/}
 							<View
 								style={styles.rectangle3TwoView}/>
 						</View>

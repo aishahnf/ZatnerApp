@@ -144,5 +144,8 @@
     <orderEntry type="module" module-name="react-native-date-picker" />
     <orderEntry type="module" module-name="react-native-gesture-handler" />
     <orderEntry type="module" module-name="react-native-linear-gradient" />
+    <orderEntry type="module" module-name="react-native-date-picker" />
+    <orderEntry type="module" module-name="react-native-gesture-handler" />
+    <orderEntry type="module" module-name="react-native-linear-gradient" />
   </component>
 </module>

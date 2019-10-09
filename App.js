@@ -13,6 +13,8 @@ import {View,Text} from "react-native"
 import Login from "./App/Login/Login";
 import Signup2 from "./App/Signup2/Signup2";
 import Signup1 from "./App/Signup1/Signup1";
+import HomeScreen from "./App/Homescreen/Homescreen"
+
 
 const PushRouteOne = createStackNavigator({
   SplashScreen1: {
@@ -28,6 +30,9 @@ const PushRouteLogin= createStackNavigator({
   },
   Signup2: {
     screen: Signup2,
+  },
+  HomeScreen: {
+    screen: HomeScreen,
   },
 }, {
   initialRouteName: "Login",

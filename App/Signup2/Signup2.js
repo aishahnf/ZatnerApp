@@ -338,7 +338,6 @@ const styles = StyleSheet.create({
 	signup2View: {
 		backgroundColor: "white",
 		flex: 1,
-
 	},
 	groupView: {
 		backgroundColor: "transparent",
